@@ -1,10 +1,7 @@
 // https://leetcode.com/study-plan/data-structure/?progress=i4lrg03
 //https://leetcode.com/problems/maximum-subarray/
 
-
-
-
-const maxSubArray = (nums) => {
+const maxSubArrayTest = (nums) => {
     let max = 0;
     let loopTotal = 0;
     let j = 1;
@@ -14,7 +11,7 @@ const maxSubArray = (nums) => {
             loopTotal += nums[j];
             j++;
         }
-
+        
         max = Math.max(max, loopTotal);
         loopTotal = 0;
         j = i + 2;
@@ -22,21 +19,23 @@ const maxSubArray = (nums) => {
     return max
 }
 
-let input3 = [6, -1, 4, -11];
-let input2 = [5, 4, -1, 7, 8];
-let input1 = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
-
-
+//TODO: https://medium.com/@rsinghal757/kadanes-algorithm-dynamic-programming-how-and-why-does-it-work-3fd8849ed73d
 const maxSubArray = (A) => {
-    var prev = 0;
-    var max = -Number.MAX_VALUE;
-
+    let prev = A[0];
+    let max = A[0];
+    
     for (var i = 0; i < A.length; i++) {
+        //i 1
         prev = Math.max(prev + A[i], A[i]);
+        //6
         max = Math.max(max, prev);
+        //6
     }
     return max;
 }
+let input1 = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
+let input3 = [6, -1, 4, -11];
+let input2 = [5, 4, -1, 7, 8];
 
 
 //similar to 121. Best Time to Buy and Sell Stock
